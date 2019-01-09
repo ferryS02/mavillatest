@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Show the application dashboard.
+ * Controller To Manipulate Related Home Page
+ * Programmed by : Ferry Simangunsong
+ */
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

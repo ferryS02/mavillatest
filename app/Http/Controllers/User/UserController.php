@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * Show the application dashboard.
+ * Controller To Manipulate Related User Data
+ * Programmed by : Ferry Simangunsong
+ */
+
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
+use Hash;
 
 class UserController extends Controller
 {
@@ -38,18 +45,19 @@ class UserController extends Controller
         $address = $request->address;
         $telephone = $request->telephone;
         $user = User::where('id',$id)->first();
-
-        if($request->old_password)
+        if($user->password)
         {
-          if (!Hash::check($request->old_password, $member->password)) {
-              return response()->json(['old_password' => 'Old password inccorect'], 404);
+          if (!Hash::check($request->old_password, $user->password)) {
+             return redirect()->back()->withErrors(['old_password' => 'Old password is incorrect'])->withInput();
           }
 
           $this->validate($request, [
             'password' => 'required|min:6|confirmed',
           ]);
 
-          $member->password = bcrypt($request->password);
+          $user->password = bcrypt($request->password);
+        }else if($request->password){
+          $user->password = bcrypt($request->password);
         }
 
         $user->name = $name;

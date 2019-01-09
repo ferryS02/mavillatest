@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Show the application dashboard.
+ * Controller To Reset User Password
+ * Programmed by : Ferry Simangunsong
+ */
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;

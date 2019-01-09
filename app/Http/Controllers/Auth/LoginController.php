@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Show the application dashboard.
+ * Controller To Related Login
+ * Programmed by : Ferry Simangunsong
+ */
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -76,10 +82,10 @@ class LoginController extends Controller
             $newUser->name            = $user->name;
             $newUser->email           = $user->email;
             $newUser->avatar          = $user->avatar;
-            $newUser->password        = $user->id;
             $newUser->avatar_original = $user->avatar_original;
             $newUser->save();
             $userSocialAccounts       = new UserSocialAccounts;
+            $userSocialAccounts->social_id = $user->id;
             $userSocialAccounts->members()->associate($newUser);
             $userSocialAccounts->save();
             auth()->login($newUser, true);

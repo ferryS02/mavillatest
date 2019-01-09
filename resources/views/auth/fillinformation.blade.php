@@ -6,21 +6,20 @@
         <div class="col-md-8">
           <div>
             <div class="form-group text-md-center">
-                <div class="row text-center" style="color:#000000;">
-                  <p style="font-size:25px">Wellcome {{$newUser->name}}</b>
-                  <p style="font-size:25px">We almost connect, we want know you more</b>
+                <div class="greeting" style="color:#000000;">
+                  <p style="font-size:35px">Wellcome {{$newUser->name}}</b>
+                  <p style="font-size:20px">We almost connect, we want know you more</b>
                 </div>
             </div>
           </div>
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ action('User\UserController@update', Auth::user()->id) }}">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Telephone') }}</label>
-
+                            <input type="text" hidden name="name" value="{{$newUser->name}}">
+                            <input type="text" hidden name="email" value="{{$newUser->email}}">
                             <div class="col-md-6">
                                 <input id="telephone" type="text" class="form-control{{ $errors->has('telephone') ? ' is-invalid' : '' }}" name="telephone" value="{{ old('telephone') }}" required autofocus>
 

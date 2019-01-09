@@ -25,3 +25,7 @@ Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/profile', 'User\UserController@profile');
 Route::post('/profile/{id}', 'User\UserController@update');
 Route::get('/accountpassword', 'User\UserController@password');
+
+Route::get('/test', function(){
+  return view('auth.fillinformation');
+});

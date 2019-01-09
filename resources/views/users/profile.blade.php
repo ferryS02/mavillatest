@@ -41,7 +41,7 @@
       </div>
       <div class="row form-group">
         <div class="col-sm-7">
-            <a href="" class="btn btn-default pull-left"><i class="glyphicon glyphicon-arrow-left"></i> Back </a>
+            <a href="{{url('/home')}}" class="btn btn-primary pull-left"><i class="glyphicon glyphicon-arrow-left"></i> Back </a>
             <button class="btn btn-danger pull-right" type="submit"> <span class="glyphicon glyphicon-ok " ></span> Save Changes</button>
         </div>
       </div>

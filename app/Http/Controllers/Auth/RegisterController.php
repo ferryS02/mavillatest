@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Show the application dashboard.
+ * Controller To Related Register
+ * Programmed by : Ferry Simangunsong
+ */
+
 namespace App\Http\Controllers\Auth;
 
 use App\User;
